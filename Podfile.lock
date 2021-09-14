@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
+  - JoinStoriesSDK (0.1.3):
+    - Alamofire (~> 4.9.1)
+    - AlamofireImage (~> 3.5)
+    - SnapKit (~> 5.0.0)
+    - SwiftyJSON (~> 4.0)
+  - SnapKit (5.0.1)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - JoinStoriesSDK
+  - SnapKit (~> 5.0.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireImage
+    - JoinStoriesSDK
+    - SnapKit
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
+  JoinStoriesSDK: 71d96bdd882ad19ff3c4eafe05753b3c608ade8e
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: 544376fcd0ba5a5aba7aa97e1ba18dd5e04608b8
+
+COCOAPODS: 1.11.2

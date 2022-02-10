@@ -2,34 +2,44 @@ import UIKit
 import SnapKit
 import JoinStoriesSDK
 
-class ViewController: UIViewController, StoryScaffoldDelegate {
+class ViewController: StoryTransitionViewController {
     
     var activityIndicator = UIActivityIndicatorView()
-    
-    var scaffolder: StoriesScaffolder!
-    
+        
     let storiesApi: StoriesApiSpec = StoriesApi()
-    
-    var scaffolderView=UIView()
-    
+                
+    let storyConfig = StoryViewConfig(
+        containerDimension: 150,
+        labelColor: UIColor.gray,
+        thumbViewSpacing: 32,
+        loaderInnerViewColor : [UIColor.black],
+        loaderColors : [UIColor.red, UIColor.blue],
+        loaderInnerViewWidth: 2,
+        loaderWidth: 3,
+        storyViewedIndicatorColor: UIColor.gray,
+        storyViewedIndicatorAlpha: 0.8,
+        thumbViewOverlayColor: UIColor(hex8: 0x4C4C4CBB)
+    )
+        
     // Variables to modify according to the widget settings
     let joinTeam = "join-showcase"
     let joinAlias = "widget-test-sdk"
 
-    
     @objc func willEnterForeground() {
         // We re-load stories when the app re-open
-        scaffolderView.removeFromSuperview()
-        
         storiesApi.fetchStories(fromTeam: joinTeam, withAlias: joinAlias) { [weak self] stories in
             self?.activityIndicator.stopAnimating()
-            self?.scaffoldStories(withStories: stories)
+            self?.stories = stories
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Add view controller as DataSource of `collectionView`
+        collectionView.dataSource = self
         // Add a notification observer to know when the app is becoming active
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
@@ -48,44 +58,45 @@ class ViewController: UIViewController, StoryScaffoldDelegate {
         // On Load, fetch the stories from the Join public API
         storiesApi.fetchStories(fromTeam: joinTeam, withAlias: joinAlias) { [weak self] stories in
             self?.activityIndicator.stopAnimating()
-            self?.scaffoldStories(withStories: stories)
+            self?.stories = stories
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
         }
     }
+            
+}
+
+// MARK: UICollectionViewDelegateFlowLayout
+
+/// UICollectionViewDelegateFlowLayout should be implemented to match storyConfig parameters
+extension ViewController: UICollectionViewDelegateFlowLayout {
     
-    func scaffoldStories(withStories stories: [StoryValue]) {
-        scaffolder = StoriesScaffolder()
-        // Configure here how the widget is displayed, the dimension, the color of the label and the border
-        let storyConfig = StoryViewConfig(
-            containerDimension: 150,
-            dividerWidth: 10,
-            // fontName: "HelveticaNeue-Bold",
-            labelColor: UIColor.gray,
-            // withLabel: false,
-            innerBorderColor : [UIColor.white],
-            outterBorderColor : [UIColor.red, UIColor.blue],
-            innerBorderWidth: 2,
-            outterBorderWidth: 3
-        )
-        
-        // Create the widget element
-        scaffolder
-            .withConfig(storyConfig)
-            .buildScroller(withStories: stories, andDelegate: self)
-        
-        // Add the widget to the view
-        scaffolderView=scaffolder
-        self.view.addSubview(scaffolder)
-        
-        // Set here the position of the widget in the view
-        scaffolder.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(50)
-            make.width.equalTo(self.view)
-            make.height.equalTo(scaffolder.config.containerDimension)
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: storyConfig.getThumbAndLabelDimensions().0,
+               height: storyConfig.containerDimension)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        CGFloat(storyConfig.getThumbViewSpacing())
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension ViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        stories.count
+    }
+    
+    /// Configure cell with ratio between height and width of the cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.reuseIdentifier, for: indexPath) as? StoryCollectionViewCell else {
+            return UICollectionViewCell()
         }
+        let story = self.stories[indexPath.item]
+        cell.setupCell(storyValue: story, with: storyConfig, ratio: 0.7)
+        return cell
     }
-    
-    func onStorySelected(story: StoryValue) {
-        self.presentStoryPlayerController(story: story, animated: true)
-    }
-    
 }

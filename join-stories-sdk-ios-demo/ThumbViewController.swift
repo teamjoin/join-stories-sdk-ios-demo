@@ -64,9 +64,11 @@ class ThumbViewController: StoryTransitionViewController, UICollectionViewDataSo
         // Add a notification observer to know when the app is becoming active
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
+        self.view.backgroundColor = UIColor(hex8: 0x141414FF)
+        
         // Create an optional loader in case of bad network condition
         activityIndicator.style = .large
-        activityIndicator.color = .white
+        activityIndicator.color = UIColor(hex8: 0xF0323CFF)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.view.addSubview(activityIndicator)

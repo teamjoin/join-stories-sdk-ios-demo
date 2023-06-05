@@ -9,14 +9,14 @@ class PlayerOnlyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(hex8: 0x141414FF)
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         let launchPlayerButton = UIButton(type: .custom)
         launchPlayerButton.setTitle("Lancer le player", for: [])
         launchPlayerButton.setTitleColor(.white, for: .normal)
-        launchPlayerButton.backgroundColor = .blue
+        launchPlayerButton.backgroundColor = UIColor(hex8: 0x5C69FFFF)
         launchPlayerButton.layer.cornerRadius = 10
         launchPlayerButton.addTarget(self, action: #selector(launchPlayer), for: .touchUpInside)
         

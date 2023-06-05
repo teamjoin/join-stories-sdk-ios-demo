@@ -5,7 +5,7 @@ platform :ios, '13.0'
 use_frameworks!
 
 target 'join-stories-sdk-ios-demo' do
-  pod 'JoinStoriesSDK'
+  pod 'JoinStoriesSDK', '~> 1.2.7'
   pod 'SnapKit', '~> 5.0.0'
 end
 

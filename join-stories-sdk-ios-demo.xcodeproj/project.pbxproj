@@ -3,21 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		278F399A26F0DE64008C027D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F399226F0DE64008C027D /* ViewController.swift */; };
 		278F399B26F0DE64008C027D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278F399326F0DE64008C027D /* Assets.xcassets */; };
 		278F399D26F0DE64008C027D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278F399626F0DE64008C027D /* Preview Assets.xcassets */; };
 		278F399E26F0DE64008C027D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278F399726F0DE64008C027D /* Main.storyboard */; };
 		278F399F26F0DE64008C027D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F399826F0DE64008C027D /* AppDelegate.swift */; };
+		9CE69BC62A2E149500F55C00 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE69BC52A2E149500F55C00 /* MainViewController.swift */; };
+		9CE69BC82A2E14C100F55C00 /* ThumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE69BC72A2E14C100F55C00 /* ThumbViewController.swift */; };
+		9CE69BCA2A2E14EB00F55C00 /* PlayerOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE69BC92A2E14EB00F55C00 /* PlayerOnlyViewController.swift */; };
 		EBB51832059DE2135F7563EB /* Pods_join_stories_sdk_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3902CA9F88C70725AE948171 /* Pods_join_stories_sdk_ios_demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		113BEBCE287E87A54C41FB53 /* Pods-join-stories-sdk-ios-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-join-stories-sdk-ios-demo.debug.xcconfig"; path = "Target Support Files/Pods-join-stories-sdk-ios-demo/Pods-join-stories-sdk-ios-demo.debug.xcconfig"; sourceTree = "<group>"; };
-		278F399226F0DE64008C027D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		278F399326F0DE64008C027D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		278F399626F0DE64008C027D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		278F399726F0DE64008C027D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -26,6 +27,9 @@
 		279570B726F0D79B00B1FA99 /* join-stories-sdk-ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "join-stories-sdk-ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3902CA9F88C70725AE948171 /* Pods_join_stories_sdk_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_join_stories_sdk_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926B628EBF2DB612EFDBFCD2 /* Pods-join-stories-sdk-ios-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-join-stories-sdk-ios-demo.release.xcconfig"; path = "Target Support Files/Pods-join-stories-sdk-ios-demo/Pods-join-stories-sdk-ios-demo.release.xcconfig"; sourceTree = "<group>"; };
+		9CE69BC52A2E149500F55C00 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9CE69BC72A2E14C100F55C00 /* ThumbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbViewController.swift; sourceTree = "<group>"; };
+		9CE69BC92A2E14EB00F55C00 /* PlayerOnlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerOnlyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,11 +55,13 @@
 		278F399126F0DE64008C027D /* join-stories-sdk-ios-demo */ = {
 			isa = PBXGroup;
 			children = (
-				278F399226F0DE64008C027D /* ViewController.swift */,
-				278F399326F0DE64008C027D /* Assets.xcassets */,
 				278F399526F0DE64008C027D /* Preview Content */,
-				278F399726F0DE64008C027D /* Main.storyboard */,
 				278F399826F0DE64008C027D /* AppDelegate.swift */,
+				9CE69BC52A2E149500F55C00 /* MainViewController.swift */,
+				9CE69BC72A2E14C100F55C00 /* ThumbViewController.swift */,
+				9CE69BC92A2E14EB00F55C00 /* PlayerOnlyViewController.swift */,
+				278F399326F0DE64008C027D /* Assets.xcassets */,
+				278F399726F0DE64008C027D /* Main.storyboard */,
 				278F399926F0DE64008C027D /* Info.plist */,
 			);
 			path = "join-stories-sdk-ios-demo";
@@ -124,8 +130,9 @@
 		27C6816926D5361100AF0536 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1430;
 			};
 			buildConfigurationList = 27C6816C26D5361100AF0536 /* Build configuration list for PBXProject "join-stories-sdk-ios-demo" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -205,8 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CE69BCA2A2E14EB00F55C00 /* PlayerOnlyViewController.swift in Sources */,
+				9CE69BC62A2E149500F55C00 /* MainViewController.swift in Sources */,
 				278F399F26F0DE64008C027D /* AppDelegate.swift in Sources */,
-				278F399A26F0DE64008C027D /* ViewController.swift in Sources */,
+				9CE69BC82A2E14C100F55C00 /* ThumbViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

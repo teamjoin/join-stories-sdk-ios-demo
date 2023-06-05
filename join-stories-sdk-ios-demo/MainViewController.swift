@@ -41,12 +41,12 @@ class MainViewController: UIViewController {
         ])
         
         
-        self.view.backgroundColor = .yellow
+        self.view.backgroundColor = UIColor(hex8: 0x141414FF)
         
         let thumbViewButton = UIButton(type: .custom)
         thumbViewButton.setTitle("ThumbView (avec bulles)", for: [])
-        thumbViewButton.setTitleColor(.black, for: .normal)
-        thumbViewButton.backgroundColor = .white
+        thumbViewButton.setTitleColor(.white, for: .normal)
+        thumbViewButton.backgroundColor = UIColor(hex8: 0x5C69FFFF)
         thumbViewButton.layer.cornerRadius = 10
         thumbViewButton.addTarget(self, action: #selector(showThumbViewController), for: .touchUpInside)
         stackView.addArrangedSubview(thumbViewButton)
@@ -58,8 +58,8 @@ class MainViewController: UIViewController {
         
         let playerButton = UIButton(type: UIButton.ButtonType.custom)
         playerButton.setTitle("Player (sans bulles)", for: [])
-        playerButton.setTitleColor(.black, for: [])
-        playerButton.backgroundColor = .white
+        playerButton.setTitleColor(.white, for: [])
+        playerButton.backgroundColor =  UIColor(hex8: 0x5C69FFFF)
         playerButton.layer.cornerRadius = 10
         playerButton.addTarget(self, action: #selector(showPlayerOnlyViewController), for: .touchUpInside)
         stackView.addArrangedSubview(playerButton)

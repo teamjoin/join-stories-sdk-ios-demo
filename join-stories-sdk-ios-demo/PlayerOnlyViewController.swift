@@ -38,15 +38,16 @@ class PlayerOnlyViewController: UIViewController {
             requestTimeoutInterval: 15,
             playerBackgroundColor: .black.withAlphaComponent(0.3),
             playerStandaloneAnimationOrigin: .default,
-            playerVerticalAnchor: .top(ignoresTopSafeArea: false),
+            playerVerticalAnchor: .topWithSafeArea,
             playerShowShareButton: true,
+            playerClosingButton: false,
             playerCornerRadius:30,
             playerProgressBarDefaultColor:"#FFFFFF",
             playerProgressBarFillColor:"#026EDA",
             playerProgressBarThickness:4,
             playerProgressBarRadius:8
         )
-        JoinStories.startPlayer(config: config, fromController: self) { [weak self] result in
+        JoinStories.startPlayer(config: config) { [weak self] result in
             switch result {
             case .success:
                 print("LaunchPlayer: Success")

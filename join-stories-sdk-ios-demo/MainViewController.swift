@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
     }
     
     @objc private func showThumbViewController(sender: UIButton!) {
-        let thumbViewController = ThumbViewController()
+        let thumbViewController = MultiThumbViewController()
         self.navigationController?.pushViewController(thumbViewController, animated: true)
     }
     

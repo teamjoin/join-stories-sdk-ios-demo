@@ -5,7 +5,12 @@ platform :ios, '13.0'
 use_frameworks!
 
 target 'join-stories-sdk-ios-demo' do
-  pod 'JoinStoriesSDK', '~> 1.2.7'
+  pod 'JoinStoriesSDK', '~> 1.3.0'
+  pod 'SnapKit', '~> 5.0.0'
+end
+
+target 'join-stories-sdk-swift-ui-demo' do
+  pod 'JoinStoriesSDK', '~> 1.3.0'
   pod 'SnapKit', '~> 5.0.0'
 end
 

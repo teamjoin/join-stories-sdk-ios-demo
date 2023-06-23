@@ -1,9 +1,9 @@
 PODS:
-  - JoinStoriesSDK (1.2.7)
+  - JoinStoriesSDK (1.3.0)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - JoinStoriesSDK (~> 1.2.7)
+  - JoinStoriesSDK (~> 1.3.0)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
-  JoinStoriesSDK: b40fda7e41b1890db92d8ac75e496199cf291ec6
+  JoinStoriesSDK: 792881fe26e3167b3b4a6a470a816b7900a6858b
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 4c0b22f14b43be792a710166f58216b42fd14768
+PODFILE CHECKSUM: 0b557a9873fecce56e0c3b1818c92d6203dfb470
 
 COCOAPODS: 1.12.1

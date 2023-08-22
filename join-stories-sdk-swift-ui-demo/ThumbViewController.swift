@@ -3,13 +3,13 @@ import SwiftUI
 
 struct ThumbViewController: UIViewControllerRepresentable {
     
+    let thumbViewController = BasicThumbViewController()
     var config: JoinStoriesThumbConfig!
     
     func makeUIViewController(context: Context) -> BasicThumbViewController {
-        let thumbViewController = BasicThumbViewController()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        thumbViewController.collectionView.setCollectionViewLayout(layout, animated: true)
+        thumbViewController._collectionView.setCollectionViewLayout(layout, animated: true)
         return thumbViewController
     }
     
@@ -21,4 +21,34 @@ struct ThumbViewController: UIViewControllerRepresentable {
         })
     }
     
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, JoinStoriesAnalyticsDelegate {
+        
+        init(_ parent: ThumbViewController) {
+            super.init()
+            
+            parent.thumbViewController.analyticsDelegate = self
+        }
+
+        func onAnalyticsCallback(event: JoinStoriesEventType, data: AnalyticsWidgetValue) {
+            switch event {
+            case .storiesFetched:
+                print("storiesFetched")
+            case .widgetMounted:
+                print("widgetMounted")
+            case .componentVisible50:
+                print("componentVisible50")
+            case .componentVisible75:
+                print("componentVisible75")
+            case .firstClickOnWidget:
+                print("firstClickOnWidget")
+            case .additionalClickOnWidget:
+                print("additionalClickOnWidget")
+            }
+        }
+    }
+
 }

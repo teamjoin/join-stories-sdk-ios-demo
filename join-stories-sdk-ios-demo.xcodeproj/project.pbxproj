@@ -167,7 +167,7 @@
 				279570AE26F0D79B00B1FA99 /* Sources */,
 				279570AF26F0D79B00B1FA99 /* Frameworks */,
 				279570B126F0D79B00B1FA99 /* Resources */,
-				279570B326F0D79B00B1FA99 /* [CP] Embed Pods Frameworks */,
+				89D93848CE6EF0F0AA3A1073 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,7 +186,7 @@
 				9C8649C22A4591B000B38AF5 /* Sources */,
 				9C8649C32A4591B000B38AF5 /* Frameworks */,
 				9C8649C42A4591B000B38AF5 /* Resources */,
-				0E50603C2AAFAA1828BB58C0 /* [CP] Embed Pods Frameworks */,
+				F689B16E04F6FEC2642F3F5E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,23 +254,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E50603C2AAFAA1828BB58C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		279570AD26F0D79B00B1FA99 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,7 +276,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		279570B326F0D79B00B1FA99 /* [CP] Embed Pods Frameworks */ = {
+		89D93848CE6EF0F0AA3A1073 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,6 +291,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-ios-demo/Pods-join-stories-sdk-ios-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F689B16E04F6FEC2642F3F5E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FBA95CAC3CFC21230810D0BD /* [CP] Check Pods Manifest.lock */ = {

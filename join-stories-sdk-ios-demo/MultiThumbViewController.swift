@@ -1,7 +1,7 @@
 import JoinStoriesSDK
 import UIKit
 
-class MultiThumbViewController: UIViewController {
+class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate {
     
     private var stackView: UIStackView!
     private let stackViewSpacing: CGFloat = 8
@@ -99,6 +99,8 @@ class MultiThumbViewController: UIViewController {
         secondThumbView.view.heightAnchor.constraint(equalToConstant: thumbViewHeight).isActive = true
         secondThumbView.view.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
 
+        //We add analytics callback only for the first thumb view
+        firstThumbView.analyticsDelegate = self
         firstThumbView.startThumbView(config: config)
         
         secondThumbView.activityIndicator.startAnimating()
@@ -106,6 +108,23 @@ class MultiThumbViewController: UIViewController {
             self.secondThumbView.startThumbView(config: secondConfig, onSuccess: {
                 self.secondThumbView.activityIndicator.stopAnimating()
             })
+        }
+    }
+    
+    func onAnalyticsCallback(event: JoinStoriesEventType, data: AnalyticsWidgetValue) {
+        switch event {
+        case .storiesFetched:
+            print("storiesFetched")
+        case .widgetMounted:
+            print("widgetMounted")
+        case .componentVisible50:
+            print("componentVisible50")
+        case .componentVisible75:
+            print("componentVisible75")
+        case .firstClickOnWidget:
+            print("firstClickOnWidget")
+        case .additionalClickOnWidget:
+            print("additionalClickOnWidget")
         }
     }
     

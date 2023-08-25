@@ -44,9 +44,9 @@ struct ThumbViewController: UIViewControllerRepresentable {
             case .componentVisible75:
                 print("componentVisible75")
             case .firstClickOnWidget:
-                print("firstClickOnWidget")
+                print("firstClickOnWidget to url: \(data.cpGoToUrl)")
             case .additionalClickOnWidget:
-                print("additionalClickOnWidget")
+                print("additionalClickOnWidget to url: \(data.cpGoToUrl)")
             }
         }
     }

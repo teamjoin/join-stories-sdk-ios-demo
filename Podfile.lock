@@ -1,16 +1,16 @@
 PODS:
-  - JoinStoriesSDK (1.4.1)
+  - JoinStoriesSDK (1.4.2)
 
 DEPENDENCIES:
-  - JoinStoriesSDK (~> 1.4.1)
+  - JoinStoriesSDK (~> 1.4.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - JoinStoriesSDK
 
 SPEC CHECKSUMS:
-  JoinStoriesSDK: 922897147ea0806325126a027ada5fac2389a084
+  JoinStoriesSDK: 7966b6ba7c6adcc9a746c390caf4094360b8cf87
 
-PODFILE CHECKSUM: 07e40669062fb4774a4cdd92e85b5fcb5b5b2f8e
+PODFILE CHECKSUM: d24a938a07f36ee192f6a0fad8e1569cee396c1d
 
 COCOAPODS: 1.12.1

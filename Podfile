@@ -5,11 +5,11 @@ platform :ios, '13.0'
 use_frameworks!
 
 target 'join-stories-sdk-ios-demo' do
-  pod 'JoinStoriesSDK', '~> 1.4.1'
+  pod 'JoinStoriesSDK', '~> 1.4.2'
 end
 
 target 'join-stories-sdk-swift-ui-demo' do
-  pod 'JoinStoriesSDK', '~> 1.4.1'
+  pod 'JoinStoriesSDK', '~> 1.4.2'
 end
 
 post_install do |installer|

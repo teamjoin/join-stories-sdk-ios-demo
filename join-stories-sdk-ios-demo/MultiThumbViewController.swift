@@ -1,7 +1,7 @@
 import JoinStoriesSDK
 import UIKit
 
-class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate {
+class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate, JoinStoriesPlayerDelegate {
     
     private var stackView: UIStackView!
     private let stackViewSpacing: CGFloat = 8
@@ -11,6 +11,7 @@ class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate {
     }
     
     let firstThumbView = BasicThumbViewController()
+    let cardView = ListStoryCardViewController()
     let secondThumbView = ThumbViewController()
     
     let config = JoinStoriesThumbConfig(
@@ -99,10 +100,14 @@ class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate {
         secondThumbView.view.heightAnchor.constraint(equalToConstant: thumbViewHeight).isActive = true
         secondThumbView.view.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
 
-        //We add analytics callback only for the first thumb view
+        // We add analytics callback only for the first thumb view
         firstThumbView.analyticsDelegate = self
-        firstThumbView.startThumbView(config: config)
         
+        // We add player callback only for the first thumb view
+        firstThumbView.storyPlayerDelegate = self
+        
+        firstThumbView.startThumbView(config: config, customParameters: ["":""])
+            
         secondThumbView.activityIndicator.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
             self.secondThumbView.startThumbView(config: secondConfig, onSuccess: {
@@ -128,4 +133,13 @@ class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate {
         }
     }
     
+    func onDismiss(dismissPlayer: JoinStoriesSDK.StoryPlayer.DismissPlayer) {
+        
+    }
+    
+    func onLinkClick(link: String) {
+        JoinStories.dismissPlayer()
+    }
+    
 }
+

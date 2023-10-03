@@ -3,7 +3,7 @@ import JoinStoriesSDK
 
 /// PlayerOnlyViewController can launch StoryPlayer without using thumbViews
 /// You will need top on button
-class PlayerOnlyViewController: UIViewController {
+class PlayerOnlyViewController: UIViewController, JoinStoriesPlayerDelegate {
     
     private let buttonHeight: CGFloat = 44
     
@@ -47,7 +47,7 @@ class PlayerOnlyViewController: UIViewController {
             playerProgressBarThickness:4,
             playerProgressBarRadius:8
         )
-        JoinStories.startPlayer(config: config) { [weak self] result in
+        JoinStories.startPlayer(config: config, customParameters: ["":""]) { [weak self] result in
             switch result {
             case .success:
                 print("LaunchPlayer: Success")
@@ -59,10 +59,16 @@ class PlayerOnlyViewController: UIViewController {
                     self?.showError(error)
                 }
             }
-        } onDismiss: { _ in
-            print("Player Dismissed")
-            self.presentAlert(title: "Player", message: "The player has been dismissed!")
         }
+    }
+    
+    func onDismiss(dismissPlayer: JoinStoriesSDK.StoryPlayer.DismissPlayer) {
+        print("Player Dismissed")
+        self.presentAlert(title: "Player", message: "The player has been dismissed!")
+    }
+    
+    func onLinkClick(link: String) {
+        print("Link clicked: \(link)")
     }
     
 }

@@ -1,22 +1,24 @@
 import UIKit
-import JoinStoriesSDK
+import JOINStoriesSDK
 
 /// PlayerOnlyViewController can launch StoryPlayer without using thumbViews
 /// You will need top on button
-class PlayerOnlyViewController: UIViewController, JoinStoriesPlayerDelegate {
+class PlayerOnlyViewController: UIViewController {
     
     private let buttonHeight: CGFloat = 44
     
+    let playerConfiguration: JoinStoriesPlayerConfigurations = JoinStoriesPlayerConfigurations()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(hex8: 0x141414FF)
+        self.view.backgroundColor = UIColor(hex: "#141414FF")
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         let launchPlayerButton = UIButton(type: .custom)
         launchPlayerButton.setTitle("Lancer le player", for: [])
         launchPlayerButton.setTitleColor(.white, for: .normal)
-        launchPlayerButton.backgroundColor = UIColor(hex8: 0x5C69FFFF)
+        launchPlayerButton.backgroundColor = UIColor(hex: "#5C69FFFF")
         launchPlayerButton.layer.cornerRadius = 10
         launchPlayerButton.addTarget(self, action: #selector(launchPlayer), for: .touchUpInside)
         
@@ -33,42 +35,8 @@ class PlayerOnlyViewController: UIViewController, JoinStoriesPlayerDelegate {
     }
     
     @objc private func launchPlayer(sender: UIButton!) {
-        let config = JoinStoriesStandaloneConfig(
-            alias: "widget-sdk-test-standalone",
-            requestTimeoutInterval: 15,
-            playerBackgroundColor: .black.withAlphaComponent(0.3),
-            playerStandaloneAnimationOrigin: .default,
-            playerVerticalAnchor: .topWithSafeArea,
-            playerShowShareButton: true,
-            playerClosingButton: false,
-            playerCornerRadius:30,
-            playerProgressBarDefaultColor:"#FFFFFF",
-            playerProgressBarFillColor:"#026EDA",
-            playerProgressBarThickness:4,
-            playerProgressBarRadius:8
-        )
-        JoinStories.startPlayer(config: config, customParameters: ["":""]) { [weak self] result in
-            switch result {
-            case .success:
-                print("LaunchPlayer: Success")
-            case .failure(let error):
-                switch error {
-                case .fetchingStoriesEmpty:
-                    self?.presentAlert(title: "Erreur", message: "No story available for that configuration")
-                default:
-                    self?.showError(error)
-                }
-            }
-        }
-    }
-    
-    func onDismiss(dismissPlayer: JoinStoriesSDK.StoryPlayer.DismissPlayer) {
-        print("Player Dismissed")
-        self.presentAlert(title: "Player", message: "The player has been dismissed!")
-    }
-    
-    func onLinkClick(link: String) {
-        print("Link clicked: \(link)")
+        let playerView = JoinStoriesPlayer(alias: "widget-6play-all")
+        playerView.show()
     }
     
 }

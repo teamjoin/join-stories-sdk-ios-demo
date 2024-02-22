@@ -1,7 +1,7 @@
-import JoinStoriesSDK
+import JOINStoriesSDK
 import UIKit
 
-class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate, JoinStoriesPlayerDelegate {
+class MultiThumbViewController: UIViewController {
     
     private var stackView: UIStackView!
     private let stackViewSpacing: CGFloat = 8
@@ -10,70 +10,19 @@ class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate, 
         stackViewSpacing + (thumbViewHeight * 2)
     }
     
-    let firstThumbView = BasicThumbViewController()
-    let cardView = ListStoryCardViewController()
-    let secondThumbView = ThumbViewController()
-    
-    let config = JoinStoriesThumbConfig(
-        alias: "widget-sdk-test-thumb",
-        requestTimeoutInterval: 15,
-        containerDimension: 150,
-        labelColor: UIColor.white,
-        thumbViewSpacing: 32,
-        loaderInnerViewColor : [UIColor.black],
-        loaderColors : [UIColor.red, UIColor.blue],
-        loaderInnerViewWidth: 2,
-        loaderWidth: 3,
-        storyViewedIndicatorColor: UIColor.gray,
-        storyViewedIndicatorAlpha: 0.8,
-        thumbViewOverlayColor: UIColor(hex8: 0x4C4C4CBB),
-        playerBackgroundColor: .black.withAlphaComponent(0.3),
-        playerVerticalAnchor: .center,
-        playerShowShareButton: true,
-        playerClosingButton: false,
-        playerHorizontalMargins:10,
-        playerCornerRadius:30,
-        playerProgressBarDefaultColor:"#FFFFFF",
-        playerProgressBarFillColor:"#026EDA",
-        playerProgressBarThickness:4,
-        playerProgressBarRadius:8
-    )
-    
-    let secondConfig = JoinStoriesThumbConfig(
-        alias: "widget-test-sdk",
-        requestTimeoutInterval: 15,
-        containerDimension: 150,
-        labelColor: UIColor.blue,
-        thumbViewSpacing: 32,
-        loaderInnerViewColor : [UIColor.black],
-        loaderColors : [UIColor.cyan, UIColor.yellow],
-        loaderInnerViewWidth: 2,
-        loaderWidth: 3,
-        storyViewedIndicatorColor: UIColor.gray,
-        storyViewedIndicatorAlpha: 0.8,
-        thumbViewOverlayColor: UIColor(hex8: 0x4C4C4CBB),
-        playerBackgroundColor: .black.withAlphaComponent(0.3),
-        playerVerticalAnchor: .center,
-        playerShowShareButton: true,
-        playerClosingButton: false,
-        playerHorizontalMargins:10,
-        playerCornerRadius:0,
-        playerProgressBarDefaultColor:"#FFFFFF",
-        playerProgressBarFillColor:"#026EDA",
-        playerProgressBarThickness:4,
-        playerProgressBarRadius:8
-    )
-    
-    @objc func willEnterForeground() {
-        // We re-load stories when the app re-open
-        firstThumbView.startThumbView(config: secondConfig)
-        secondThumbView.startThumbView(config: config)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        let config = JoinStoriesBubbleConfigurations(
+            labelFont: UIFont.jsAvenir(type: .avenirBlack, size: 12),
+            labelColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
+            loaderColors: [UIColor(red: 84/255, green: 157/255, blue: 247/255, alpha: 1).cgColor, UIColor(red: 84/255, green: 157/255, blue: 247/255, alpha: 1).cgColor],
+            loaderWidth: 4
+        )
+        
+        let firstThumbView = BubbleTriggerView(config, alias: "widget-6play-all")
+        let cardView = TriggerCardView(TriggerCardConfigurationValues(), alias: "widget-demo-westfield")
+        //let listView = TriggerListView(TriggerListConfigurationValues(), alias: "widget-6play-all")
         
         stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,56 +38,25 @@ class MultiThumbViewController: UIViewController, JoinStoriesAnalyticsDelegate, 
             stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        stackView.addArrangedSubview(firstThumbView.view)
-        stackView.addArrangedSubview(secondThumbView.view)
+        stackView.addArrangedSubview(firstThumbView)
+        //stackView.addArrangedSubview(listView)
         
-        firstThumbView.view.translatesAutoresizingMaskIntoConstraints = false
-        firstThumbView.view.heightAnchor.constraint(equalToConstant: thumbViewHeight).isActive = true
-        firstThumbView.view.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
+        firstThumbView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            firstThumbView.topAnchor.constraint(equalTo: self.stackView.topAnchor, constant: 10),
+            firstThumbView.leadingAnchor.constraint(equalTo: self.stackView.leadingAnchor, constant: 0),
+            firstThumbView.trailingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: -0),
+            firstThumbView.bottomAnchor.constraint(equalTo: self.stackView.bottomAnchor, constant: 0),
+        ])
+        
+        /*listView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            listView.topAnchor.constraint(equalTo: self.stackView.topAnchor, constant: 10),
+            listView.leadingAnchor.constraint(equalTo: self.stackView.leadingAnchor, constant: 0),
+            listView.trailingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: 0),
+            listView.bottomAnchor.constraint(equalTo: self.stackView.bottomAnchor),
+        ])*/
 
-        secondThumbView.view.translatesAutoresizingMaskIntoConstraints = false
-        secondThumbView.view.heightAnchor.constraint(equalToConstant: thumbViewHeight).isActive = true
-        secondThumbView.view.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-
-        // We add analytics callback only for the first thumb view
-        firstThumbView.analyticsDelegate = self
-        
-        // We add player callback only for the first thumb view
-        firstThumbView.storyPlayerDelegate = self
-        
-        firstThumbView.startThumbView(config: config, customParameters: ["":""])
-            
-        secondThumbView.activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [self] in
-            self.secondThumbView.startThumbView(config: secondConfig, onSuccess: {
-                self.secondThumbView.activityIndicator.stopAnimating()
-            })
-        }
-    }
-    
-    func onAnalyticsCallback(event: JoinStoriesEventType, data: AnalyticsWidgetValue) {
-        switch event {
-        case .storiesFetched:
-            print("storiesFetched")
-        case .widgetMounted:
-            print("widgetMounted")
-        case .componentVisible50:
-            print("componentVisible50")
-        case .componentVisible75:
-            print("componentVisible75")
-        case .firstClickOnWidget:
-            print("firstClickOnWidget to url: \(data.cpGoToUrl)")
-        case .additionalClickOnWidget:
-            print("additionalClickOnWidget to url: \(data.cpGoToUrl)")
-        }
-    }
-    
-    func onDismiss(dismissPlayer: JoinStoriesSDK.StoryPlayer.DismissPlayer) {
-        
-    }
-    
-    func onLinkClick(link: String) {
-        JoinStories.dismissPlayer()
     }
     
 }

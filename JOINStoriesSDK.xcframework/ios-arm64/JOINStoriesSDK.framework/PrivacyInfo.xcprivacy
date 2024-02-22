@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyCollectedDataType</key>
+			<string>Purpose Analytics
+
+NSPrivacyCollectedDataTypePurposeAnalytics
+
+NSPrivacyCollectedDataTypePurposeAnalytics
+
+</string>
+			<key>NSPrivacyCollectedDataTypeLinked</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypeTracking</key>
+			<false/>
+			<key>NSPrivacyCollectedDataTypePurposes</key>
+			<array>
+				<string>This information helps identify and address potential issues, ensuring reliability and optimization of the SDK functionality for a better user experience. The collected data serves as a key tool for continuously improving the product and meeting the needs of your audience.</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

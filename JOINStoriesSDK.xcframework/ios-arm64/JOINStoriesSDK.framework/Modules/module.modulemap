@@ -1,0 +1,11 @@
+framework module JOINStoriesSDK {
+  umbrella header "JOINStoriesSDK.h"
+  export *
+
+  module * { export * }
+}
+
+module JOINStoriesSDK.Swift {
+  header "JOINStoriesSDK-Swift.h"
+  requires objc
+}

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,10 +16,10 @@
 		9C8649D02A4591B100B38AF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8649CF2A4591B100B38AF5 /* Preview Assets.xcassets */; };
 		9C8649D52A45928800B38AF5 /* SDKSwiftUIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8649D42A45928800B38AF5 /* SDKSwiftUIDemoApp.swift */; };
 		9C8649D72A4592ED00B38AF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8649D62A4592ED00B38AF5 /* AppDelegate.swift */; };
-		9C8649D92A4593E400B38AF5 /* ThumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8649D82A4593E400B38AF5 /* ThumbViewController.swift */; };
 		9C8649DB2A4599BC00B38AF5 /* MultiThumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8649DA2A4599BC00B38AF5 /* MultiThumbViewController.swift */; };
+		9CDBF99B2B87543100333C97 /* JOINStoriesSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CDBF99A2B87543100333C97 /* JOINStoriesSDK.xcframework */; };
+		9CDBF99C2B87543100333C97 /* JOINStoriesSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CDBF99A2B87543100333C97 /* JOINStoriesSDK.xcframework */; };
 		9CE69BC62A2E149500F55C00 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE69BC52A2E149500F55C00 /* MainViewController.swift */; };
-		9CE69BC82A2E14C100F55C00 /* ThumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE69BC72A2E14C100F55C00 /* ThumbViewController.swift */; };
 		9CE69BCA2A2E14EB00F55C00 /* PlayerOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE69BC92A2E14EB00F55C00 /* PlayerOnlyViewController.swift */; };
 		EBB51832059DE2135F7563EB /* Pods_join_stories_sdk_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3902CA9F88C70725AE948171 /* Pods_join_stories_sdk_ios_demo.framework */; };
 		EE1634AF5CD83F2789BEA225 /* Pods_join_stories_sdk_swift_ui_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8671605BD50B16FC2C3D85FE /* Pods_join_stories_sdk_swift_ui_demo.framework */; };
@@ -44,10 +44,9 @@
 		9C8649CF2A4591B100B38AF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9C8649D42A45928800B38AF5 /* SDKSwiftUIDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKSwiftUIDemoApp.swift; sourceTree = "<group>"; };
 		9C8649D62A4592ED00B38AF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C8649D82A4593E400B38AF5 /* ThumbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbViewController.swift; sourceTree = "<group>"; };
 		9C8649DA2A4599BC00B38AF5 /* MultiThumbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiThumbViewController.swift; sourceTree = "<group>"; };
+		9CDBF99A2B87543100333C97 /* JOINStoriesSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = JOINStoriesSDK.xcframework; sourceTree = "<group>"; };
 		9CE69BC52A2E149500F55C00 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		9CE69BC72A2E14C100F55C00 /* ThumbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbViewController.swift; sourceTree = "<group>"; };
 		9CE69BC92A2E14EB00F55C00 /* PlayerOnlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerOnlyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CDBF99B2B87543100333C97 /* JOINStoriesSDK.xcframework in Frameworks */,
 				EBB51832059DE2135F7563EB /* Pods_join_stories_sdk_ios_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CDBF99C2B87543100333C97 /* JOINStoriesSDK.xcframework in Frameworks */,
 				EE1634AF5CD83F2789BEA225 /* Pods_join_stories_sdk_swift_ui_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +75,7 @@
 		02EA8C4BB741F64C8B394197 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CDBF99A2B87543100333C97 /* JOINStoriesSDK.xcframework */,
 				3902CA9F88C70725AE948171 /* Pods_join_stories_sdk_ios_demo.framework */,
 				8671605BD50B16FC2C3D85FE /* Pods_join_stories_sdk_swift_ui_demo.framework */,
 			);
@@ -86,7 +88,6 @@
 				278F399526F0DE64008C027D /* Preview Content */,
 				278F399826F0DE64008C027D /* AppDelegate.swift */,
 				9CE69BC52A2E149500F55C00 /* MainViewController.swift */,
-				9CE69BC72A2E14C100F55C00 /* ThumbViewController.swift */,
 				9C8649DA2A4599BC00B38AF5 /* MultiThumbViewController.swift */,
 				9CE69BC92A2E14EB00F55C00 /* PlayerOnlyViewController.swift */,
 				278F399326F0DE64008C027D /* Assets.xcassets */,
@@ -141,7 +142,6 @@
 				9C8649D62A4592ED00B38AF5 /* AppDelegate.swift */,
 				9C8649CA2A4591B000B38AF5 /* ContentView.swift */,
 				9C8649D42A45928800B38AF5 /* SDKSwiftUIDemoApp.swift */,
-				9C8649D82A4593E400B38AF5 /* ThumbViewController.swift */,
 				9C8649CC2A4591B100B38AF5 /* Assets.xcassets */,
 				9C8649CE2A4591B100B38AF5 /* Preview Content */,
 			);
@@ -167,7 +167,6 @@
 				279570AE26F0D79B00B1FA99 /* Sources */,
 				279570AF26F0D79B00B1FA99 /* Frameworks */,
 				279570B126F0D79B00B1FA99 /* Resources */,
-				279570B326F0D79B00B1FA99 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,7 +185,6 @@
 				9C8649C22A4591B000B38AF5 /* Sources */,
 				9C8649C32A4591B000B38AF5 /* Frameworks */,
 				9C8649C42A4591B000B38AF5 /* Resources */,
-				0E50603C2AAFAA1828BB58C0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,23 +252,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E50603C2AAFAA1828BB58C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-swift-ui-demo/Pods-join-stories-sdk-swift-ui-demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		279570AD26F0D79B00B1FA99 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,23 +272,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		279570B326F0D79B00B1FA99 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-ios-demo/Pods-join-stories-sdk-ios-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-ios-demo/Pods-join-stories-sdk-ios-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-join-stories-sdk-ios-demo/Pods-join-stories-sdk-ios-demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FBA95CAC3CFC21230810D0BD /* [CP] Check Pods Manifest.lock */ = {
@@ -343,7 +307,6 @@
 				9CE69BCA2A2E14EB00F55C00 /* PlayerOnlyViewController.swift in Sources */,
 				9CE69BC62A2E149500F55C00 /* MainViewController.swift in Sources */,
 				278F399F26F0DE64008C027D /* AppDelegate.swift in Sources */,
-				9CE69BC82A2E14C100F55C00 /* ThumbViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +317,6 @@
 				9C8649D72A4592ED00B38AF5 /* AppDelegate.swift in Sources */,
 				9C8649CB2A4591B000B38AF5 /* ContentView.swift in Sources */,
 				9C8649D52A45928800B38AF5 /* SDKSwiftUIDemoApp.swift in Sources */,
-				9C8649D92A4593E400B38AF5 /* ThumbViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +331,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = S9ZWLXSAH8;
+				DEVELOPMENT_TEAM = 4YVN4C8744;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/join-stories-sdk-ios-demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -393,7 +355,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = S9ZWLXSAH8;
+				DEVELOPMENT_TEAM = 4YVN4C8744;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/join-stories-sdk-ios-demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -534,6 +496,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"join-stories-sdk-swift-ui-demo/Preview Content\"";
+				DEVELOPMENT_TEAM = 4YVN4C8744;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -565,6 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"join-stories-sdk-swift-ui-demo/Preview Content\"";
+				DEVELOPMENT_TEAM = 4YVN4C8744;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

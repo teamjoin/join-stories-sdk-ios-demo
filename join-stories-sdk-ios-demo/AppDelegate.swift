@@ -1,5 +1,5 @@
 import UIKit
-import JoinStoriesSDK
+import JOINStoriesSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,9 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let genenalConfiguration = JoinConfiguration(team: "join-showcase")
-        
-        JoinStories.setConfiguration(genenalConfiguration)
+        JOINStoriesConfiguration.setValues(teamId: "join-test-sdk-new")
         
         let navigationController = UINavigationController()
         let mainView = MainViewController(nibName: nil, bundle: nil)

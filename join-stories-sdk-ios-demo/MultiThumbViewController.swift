@@ -1,12 +1,18 @@
 import JOINStoriesSDK
 import UIKit
 
-class MultiThumbViewController: UIViewController {
+class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
 
     private var scrollView: UIScrollView!
+    
+    private var firstThumbView: BubbleTriggerView!
+    private var cardView: TriggerCardView!
+    private var listView: TriggerListView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        JOINStoriesListener.setDelegate(delegate: self)
 
         let config = JoinStoriesBubbleConfigurations(
             labelFont: UIFont.jsAvenir(type: .avenirBlack, size: 12),
@@ -14,10 +20,21 @@ class MultiThumbViewController: UIViewController {
             loaderColors: [UIColor(red: 84/255, green: 157/255, blue: 247/255, alpha: 1).cgColor, UIColor(red: 84/255, green: 157/255, blue: 247/255, alpha: 1).cgColor],
             loaderWidth: 4
         )
+        
+        let cardConfig = TriggerListConfigurationValues(
+            showPlayButton: false
+        )
+        
+        let playerConfig = JoinStoriesPlayerConfigurations(
+            playerBackgroundColor: UIColor(hex: "#FFFFFFAA")!,
+            playerHorizontalMargins: 8,
+            playerCornerRadius: 8
+        )
+        
 
-        let firstThumbView = BubbleTriggerView(config, alias: "widget-6play-all")
-        let cardView = TriggerCardView(TriggerCardConfigurationValues(), alias: "widget-6play-ile-tentation")
-        let listView = TriggerListView(TriggerListConfigurationValues(), alias: "widget-6play-destination-x")
+        firstThumbView = BubbleTriggerView(config, playerConfig, alias: "widget-6play-all")
+        cardView = TriggerCardView(alias: "widget-6play-ile-tentation")
+        listView = TriggerListView(cardConfig, alias: "widget-6play-destination-x")
 
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -58,4 +75,52 @@ class MultiThumbViewController: UIViewController {
             cardView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
     }
+    
+    func onTriggerAnalyticsCallback(model: TriggerAnalyticsModel) {
+        print("onTriggerAnalyticsCallback event: \(model.payload.eventType)")
+    }
+    
+    func onPlayerAnalyticsCallback(model: PlayerAnalyticsModel) {
+        print("onPlayerAnalyticsCallback event: \(model.payload.eventType)")
+    }
+    
+    func onTriggerFetchError(message: String) {
+        print("onTriggerFetchError")
+    }
+    
+    func onTriggerFetchEmpty(message: String) {
+        print("onTriggerFetchEmpty")
+    }
+    
+    func onPlayerFetchError(message: String) {
+        print("onPlayerFetchError")
+    }
+    
+    func onContentLinkClick(url: String) -> Bool {
+        print("onContentLinkClick url: \(url)")
+        
+        firstThumbView.dismissPlayer()
+        cardView.dismissPlayer()
+        listView.dismissPlayer()
+        
+        return true
+    }
+    
+    func onPlayerDismissed(type: PlayerDismissedType) {
+        print("onPlayerDismissed type: \(type)")
+    }
+    
+    func onTriggerFetchSuccess() {
+        print("onTriggerFetchSuccess")
+    }
+    
+    func onPlayerLoaded() {
+        print("onPlayerLoaded")
+    }
+    
+    func onPlayerFetchSuccess() {
+        print("onPlayerFetchSuccess")
+    }
+    
+    
 }

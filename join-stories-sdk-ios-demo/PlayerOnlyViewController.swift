@@ -8,6 +8,7 @@ class PlayerOnlyViewController: UIViewController {
     private let buttonHeight: CGFloat = 44
     
     let playerConfiguration: JoinStoriesPlayerConfigurations = JoinStoriesPlayerConfigurations()
+    private var playerView: JoinStoriesPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,12 @@ class PlayerOnlyViewController: UIViewController {
             launchPlayerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
         
+        self.playerView = JoinStoriesPlayer(alias: "widget-6play-all")
+        
     }
     
     @objc private func launchPlayer(sender: UIButton!) {
-        let playerView = JoinStoriesPlayer(alias: "widget-6play-all")
-        playerView.show()
+        self.playerView.show()
     }
     
 }

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "join-stories-sdk-ios-binary",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/teamjoin/join-stories-sdk-ios-binary",
+      "state" : {
+        "revision" : "9836c68a8a8ce0fc2761bf2103ada0a4828ac56c",
+        "version" : "3.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}

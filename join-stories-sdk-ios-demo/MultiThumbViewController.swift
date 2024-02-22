@@ -2,62 +2,60 @@ import JOINStoriesSDK
 import UIKit
 
 class MultiThumbViewController: UIViewController {
-    
-    private var stackView: UIStackView!
-    private let stackViewSpacing: CGFloat = 8
-    private let thumbViewHeight: CGFloat = 150
-    private var contentViewHeight: CGFloat {
-        stackViewSpacing + (thumbViewHeight * 2)
-    }
-    
+
+    private var scrollView: UIScrollView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let config = JoinStoriesBubbleConfigurations(
             labelFont: UIFont.jsAvenir(type: .avenirBlack, size: 12),
             labelColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
             loaderColors: [UIColor(red: 84/255, green: 157/255, blue: 247/255, alpha: 1).cgColor, UIColor(red: 84/255, green: 157/255, blue: 247/255, alpha: 1).cgColor],
             loaderWidth: 4
         )
-        
+
         let firstThumbView = BubbleTriggerView(config, alias: "widget-6play-all")
-        let cardView = TriggerCardView(TriggerCardConfigurationValues(), alias: "widget-demo-westfield")
-        //let listView = TriggerListView(TriggerListConfigurationValues(), alias: "widget-6play-all")
-        
-        stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = stackViewSpacing
-        
-        view.addSubview(stackView)
+        let cardView = TriggerCardView(TriggerCardConfigurationValues(), alias: "widget-6play-ile-tentation")
+        let listView = TriggerListView(TriggerListConfigurationValues(), alias: "widget-6play-destination-x")
 
+        scrollView = UIScrollView(frame: view.bounds)
+        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(scrollView)
+        
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
-        stackView.addArrangedSubview(firstThumbView)
-        //stackView.addArrangedSubview(listView)
-        
+
+        scrollView.addSubview(firstThumbView)
+        scrollView.addSubview(listView)
+        scrollView.addSubview(cardView)
+
         firstThumbView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            firstThumbView.topAnchor.constraint(equalTo: self.stackView.topAnchor, constant: 10),
-            firstThumbView.leadingAnchor.constraint(equalTo: self.stackView.leadingAnchor, constant: 0),
-            firstThumbView.trailingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: -0),
-            firstThumbView.bottomAnchor.constraint(equalTo: self.stackView.bottomAnchor, constant: 0),
-        ])
+        listView.translatesAutoresizingMaskIntoConstraints = false
+        cardView.translatesAutoresizingMaskIntoConstraints = false
         
-        /*listView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            listView.topAnchor.constraint(equalTo: self.stackView.topAnchor, constant: 10),
-            listView.leadingAnchor.constraint(equalTo: self.stackView.leadingAnchor, constant: 0),
-            listView.trailingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: 0),
-            listView.bottomAnchor.constraint(equalTo: self.stackView.bottomAnchor),
-        ])*/
+            firstThumbView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            firstThumbView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            firstThumbView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            firstThumbView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
+            listView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            listView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            listView.topAnchor.constraint(equalTo: firstThumbView.bottomAnchor, constant: 10),
+            listView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+
+            cardView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            cardView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            cardView.topAnchor.constraint(equalTo: listView.bottomAnchor, constant: 10),
+            cardView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            cardView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+        ])
     }
-    
 }
-

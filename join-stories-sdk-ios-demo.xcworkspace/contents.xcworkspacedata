@@ -4,7 +4,4 @@
    <FileRef
       location = "group:join-stories-sdk-ios-demo.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
 </Workspace>

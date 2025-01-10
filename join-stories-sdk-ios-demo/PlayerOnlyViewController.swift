@@ -33,7 +33,7 @@ class PlayerOnlyViewController: UIViewController {
             launchPlayerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         ])
         
-        self.playerView = JoinStoriesPlayer(alias: "widget-6play-all")
+        self.playerView = JoinStoriesPlayer(alias: "welcome-showcase")
         
     }
     

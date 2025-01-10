@@ -32,9 +32,9 @@ class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
         )
         
 
-        firstThumbView = BubbleTriggerView(config, playerConfig, alias: "widget-6play-all")
-        cardView = TriggerCardView(alias: "widget-6play-ile-tentation")
-        listView = TriggerListView(cardConfig, alias: "widget-6play-destination-x")
+        firstThumbView = BubbleTriggerView(config, playerConfig, alias: "welcome-showcase")
+        cardView = TriggerCardView(alias: "welcome-showcase")
+        listView = TriggerListView(cardConfig, alias: "welcome-showcase")
 
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -72,16 +72,16 @@ class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
             cardView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             cardView.topAnchor.constraint(equalTo: listView.bottomAnchor, constant: 10),
             cardView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
-            cardView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            cardView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }
     
     func onTriggerAnalyticsCallback(model: TriggerAnalyticsModel) {
-        print("onTriggerAnalyticsCallback event: \(model.payload.eventType)")
+        print("onTriggerAnalyticsCallback event: \(model.eventType)")
     }
     
     func onPlayerAnalyticsCallback(model: PlayerAnalyticsModel) {
-        print("onPlayerAnalyticsCallback event: \(model.payload.eventType)")
+        print("onPlayerAnalyticsCallback event: \(model.eventType) \(model.cpTitle) \(model.eventOwner)")
     }
     
     func onTriggerFetchError(message: String) {
@@ -98,10 +98,7 @@ class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
     
     func onContentLinkClick(url: String) -> Bool {
         print("onContentLinkClick url: \(url)")
-        
-        firstThumbView.dismissPlayer()
-        cardView.dismissPlayer()
-        listView.dismissPlayer()
+        JOINStories.dismissPlayer()
         
         return true
     }
@@ -120,6 +117,13 @@ class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
     
     func onPlayerFetchSuccess() {
         print("onPlayerFetchSuccess")
+    }
+    
+    func gridTriggerDesiredContentHeight(gridTriggerHeight: CGFloat) {
+        DispatchQueue.main.async { [weak self] in
+            guard let sSelf = self else { return }
+            sSelf.cardView.heightAnchor.constraint(equalToConstant: gridTriggerHeight).isActive = true
+        }
     }
     
     

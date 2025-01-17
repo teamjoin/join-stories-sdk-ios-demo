@@ -1,7 +1,7 @@
 import JOINStoriesSDK
 import UIKit
 
-class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
+class MultiThumbViewController: UIViewController {
 
     private var scrollView: UIScrollView!
     
@@ -76,6 +76,10 @@ class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
         ])
     }
     
+}
+
+extension MultiThumbViewController: JOINStoriesListenerDelegate {
+    
     func onTriggerAnalyticsCallback(model: TriggerAnalyticsModel) {
         print("onTriggerAnalyticsCallback event: \(model.eventType)")
     }
@@ -107,7 +111,7 @@ class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
         print("onPlayerDismissed type: \(type)")
     }
     
-    func onTriggerFetchSuccess() {
+    func onTriggerFetchSuccess(itemCount: Int) {
         print("onTriggerFetchSuccess")
     }
     
@@ -125,6 +129,4 @@ class MultiThumbViewController: UIViewController, JOINStoriesListenerDelegate {
             sSelf.cardView.heightAnchor.constraint(equalToConstant: gridTriggerHeight).isActive = true
         }
     }
-    
-    
 }

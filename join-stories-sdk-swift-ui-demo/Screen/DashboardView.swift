@@ -9,8 +9,13 @@ import JOINStoriesSDK
 import SwiftUI
 
 struct DashboardView: View {
-    @StateObject var gridCardConfiguration: TriggerConfiguration = TriggerConfiguration()
-    let triggerCardConfiguration = TriggerCardConfigurationValues()
+    let triggerCardConfiguration = TriggerCardConfigurationValues(
+        spacing: 6,
+        borderWidth: 2,
+        borderColor: .blue,
+        storyViewedBorderColor: .gray,
+        animationType: .pulse
+    )
     
     var body: some View {
         NavigationView {

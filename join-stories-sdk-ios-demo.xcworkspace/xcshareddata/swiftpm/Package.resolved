@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/teamjoin/join-stories-sdk-ios-binary",
       "state" : {
-        "revision" : "c7b8f93cde1fba20e5e1f48fe918813b6050e01d",
-        "version" : "3.1.11"
+        "revision" : "8a3fca97a8dcf26ed77e37af495b144e314e12a3",
+        "version" : "3.6.0"
       }
     }
   ],

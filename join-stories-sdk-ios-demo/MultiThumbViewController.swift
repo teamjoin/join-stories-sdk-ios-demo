@@ -15,14 +15,20 @@ class MultiThumbViewController: UIViewController {
         JOINStoriesListener.setDelegate(delegate: self)
 
         let config = JoinStoriesBubbleConfigurations(
+            showLabel: true,
             labelFont: UIFont.jsAvenir(type: .avenirBlack, size: 12),
-            labelColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
+            labelColor: .black,
             loaderColors: [UIColor(red: 84/255, green: 157/255, blue: 247/255, alpha: 1).cgColor, UIColor(red: 84/255, green: 157/255, blue: 247/255, alpha: 1).cgColor],
             loaderWidth: 4
         )
         
         let cardConfig = TriggerListConfigurationValues(
-            showPlayButton: false
+            showPlayButton: false,
+            spacing: 6,
+            borderWidth: 2,
+            borderColor: .blue,
+            storyViewedBorderColor: .gray,
+            animationType: .pulse
         )
         
         let playerConfig = JoinStoriesPlayerConfigurations(
@@ -31,7 +37,6 @@ class MultiThumbViewController: UIViewController {
             playerCornerRadius: 8
         )
         
-
         firstThumbView = BubbleTriggerView(config, playerConfig, alias: "welcome-showcase")
         cardView = TriggerCardView(alias: "welcome-showcase")
         listView = TriggerListView(cardConfig, alias: "welcome-showcase")
@@ -86,6 +91,7 @@ extension MultiThumbViewController: JOINStoriesListenerDelegate {
     
     func onPlayerAnalyticsCallback(model: PlayerAnalyticsModel) {
         print("onPlayerAnalyticsCallback event: \(model.eventType) \(model.cpTitle) \(model.eventOwner)")
+        print("onPlayerAnalyticsCallback cta url: \(model.ctaUrl)")
     }
     
     func onTriggerFetchError(message: String) {
@@ -100,7 +106,7 @@ extension MultiThumbViewController: JOINStoriesListenerDelegate {
         print("onPlayerFetchError")
     }
     
-    func onContentLinkClick(url: String) -> Bool {
+    func onContentLinkClick(url: String?) -> Bool {
         print("onContentLinkClick url: \(url)")
         JOINStories.dismissPlayer()
         
@@ -121,12 +127,5 @@ extension MultiThumbViewController: JOINStoriesListenerDelegate {
     
     func onPlayerFetchSuccess() {
         print("onPlayerFetchSuccess")
-    }
-    
-    func gridTriggerDesiredContentHeight(gridTriggerHeight: CGFloat) {
-        DispatchQueue.main.async { [weak self] in
-            guard let sSelf = self else { return }
-            sSelf.cardView.heightAnchor.constraint(equalToConstant: gridTriggerHeight).isActive = true
-        }
     }
 }

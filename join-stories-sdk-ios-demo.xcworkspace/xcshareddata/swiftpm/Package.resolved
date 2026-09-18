@@ -1,13 +1,13 @@
 {
-  "originHash" : "327ea8fdca8bdc4e210028e21195b4fae5e43d05c598850674046ba3fca26c22",
+  "originHash" : "83d4d140363d033f82a873a5bce1441b3c3e3605b34f58ef73553ffaadd31a67",
   "pins" : [
     {
-      "identity" : "join-stories-sdk-ios-binary",
+      "identity" : "join-stories-sdk-ios-spm",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/teamjoin/join-stories-sdk-ios-binary",
+      "location" : "https://github.com/teamjoin/join-stories-sdk-ios-spm",
       "state" : {
-        "revision" : "8a3fca97a8dcf26ed77e37af495b144e314e12a3",
-        "version" : "3.6.0"
+        "revision" : "8bb968cd4eb9551ded4031ef1850b0e499a161f9",
+        "version" : "3.10.0"
       }
     }
   ],

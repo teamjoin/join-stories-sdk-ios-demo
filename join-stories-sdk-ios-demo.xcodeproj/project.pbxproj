@@ -537,7 +537,7 @@
 			repositoryURL = "https://github.com/teamjoin/join-stories-sdk-ios-spm";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.10.0;
+				minimumVersion = 3.10.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/teamjoin/join-stories-sdk-ios-spm",
       "state" : {
-        "revision" : "8bb968cd4eb9551ded4031ef1850b0e499a161f9",
-        "version" : "3.10.0"
+        "revision" : "3ff4bb15d37556c6e17f52cf8c53fda10f014ae5",
+        "version" : "3.10.1"
       }
     }
   ],
